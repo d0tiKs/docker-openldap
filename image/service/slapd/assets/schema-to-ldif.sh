@@ -44,7 +44,7 @@ for schema in ${SCHEMAS} ; do
 
     find . -name *\}${schema_name}.ldif | xargs -I {} mv '{}' ./${ldif_file}
 
-    # Strip ldif file off export metadata metadata
+    # Strip ldif file off export metadata
     sed -e "/dn:/ c dn: cn=${schema_name},cn=schema,cn=config" \
     -e "/cn:/ c cn: ${schema_name}" \
     -e '/structuralObjectClass/ d' \
